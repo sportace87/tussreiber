@@ -21,4 +21,22 @@ angular.module('tussreiber', ['ngRoute'])
           .when('/journey', {templateUrl: prefix + 'journey/journey.html'})
           .when('/others', {templateUrl: prefix + 'others/others.html'})
           .otherwise({redirectTo: '/'})
+    })
+    .directive('previous', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                ref: '='
+            },
+            template: '<div class="previous"><span><a ng-href="#/news/{{ref}}" title="Zur&uuml;ck">&lt;&lt; Previous</a></span></div>'
+        }
+    })
+    .directive('next', function() {
+        return {
+            restrict: 'E',
+            scope: {
+                ref: '='
+            },
+            template: '<div class="next"><span><a ng-href="#/news/{{ref}}" title="Vorw&auml;rts">Next &gt;&gt;</a></span></div>'
+        }
     });
